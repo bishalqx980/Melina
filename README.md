@@ -5,7 +5,7 @@
 - Original Release: 02/01/2023 (Source Deleted)
   - based on python-telegram-bot lib
 - `Melina 2.0` Release: 05/06/2025
-  - based on pyrogram
+  - based on kurigram (pyrogram fork)
 
 ### **Successor [tgbot](https://github.com/bishalqx980/tgbot)**
 

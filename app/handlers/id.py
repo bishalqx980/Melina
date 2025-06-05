@@ -6,7 +6,7 @@ from app import app
 async def func_id(client: Client, message: Message):
     user = message.from_user
     chat = message.chat
-
+    
     text = (
         f"ChatID: `{chat.id}`\n"
         f"UserID: `{user.id}`"

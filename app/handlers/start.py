@@ -48,7 +48,7 @@ async def func_start(client: Client, message: Message):
     text = (
         f"Hi 👋, myself {bot.first_name} 🥰!\n"
         f"Nice to meet you, {user.first_name}\n\n"
-
+        
         "I'm just a simple bot with some cool features 😊."
     )
 
