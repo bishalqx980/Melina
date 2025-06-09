@@ -1,24 +1,40 @@
+import os
 import asyncio
 from pyrogram import idle
-from pyrogram.errors import FloodWait
 from app import app, logger
-from app.handlers import *
 from config import CONFIG
 
+def load_handlers():
+    handlers_dir = "app/handlers"
+    for root, dirs, files in os.walk(handlers_dir):
+        for filename in files:
+            if filename.endswith(".py") and not filename.startswith("_"):
+                rel_path = os.path.relpath(root, handlers_dir)
+                if rel_path == ".":
+                    module_path = f"app.handlers.{filename[:-3]}"
+                else:
+                    rel_module_path = rel_path.replace(os.sep, ".")
+                    module_path = f"app.handlers.{rel_module_path}.{filename[:-3]}"
+                __import__(module_path)
+
+
 async def app_init():
+    try:
+        await app.send_message(CONFIG.OWNER_ID, "Bot Started!")
+    except Exception as e:
+        logger.error(e)
+    
     logger.info("BOT STARTED...!")
-    await app.send_message(CONFIG.OWNER_ID, "Bot Started!")
     await idle()
 
 
 async def main():
+    # Need to load before app.run()
+    load_handlers()
+
     try:
         await app.start()
         await app_init()
-    except FloodWait as e:
-        logger.info(f"FloodWait: {e}")
-        await asyncio.sleep(e.value)
-        await main()
     except Exception as e:
         logger.error(e)
 

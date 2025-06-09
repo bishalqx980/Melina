@@ -10,7 +10,10 @@ async def helpmenu_query_handler(client: Client, query: CallbackQuery):
     if query_data == "menu":
         text = (
             "<blockquote>Help Menu</blockquote>\n\n"
-            "• /id - Show user/chat ID"
+            "• /id - Show user/chat ID\n"
+            "• /tagall - Tag all chat members\n"
+            "• /stoptagall - Stop tagging chat members\n"
+            "• /log - [debug] (owner only)\n"
         )
 
         keyboard_data = [{"Close ✖️": "help_close"}]
