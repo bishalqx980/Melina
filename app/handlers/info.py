@@ -32,7 +32,7 @@ async def func_info(client, message: Message):
         f"• Name: {user_info.full_name}\n"
         f"  - First: {user_info.first_name}\n"
         f"  - Last: {user_info.last_name}\n"
-        f"• Username: {user_info.username}\n"
+        f"• Username: @{user_info.username or "username"}\n"
         f"• ID: `{user_info.id}`\n"
         f"• DC: `{user_info.dc_id}`\n"
         f"• Lang: {user_info.language_code}"
