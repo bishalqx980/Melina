@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatType
 from app import app
@@ -6,7 +6,7 @@ from app.helpers import BuildKeyboard
 from app.modules.database import MemoryDB, MongoDB
 
 @app.on_message(filters.command("start", ["/", "-", "!", "."]))
-async def func_start(client: Client, message: Message):
+async def func_start(client, message: Message):
     user = message.from_user
     chat = message.chat
 
@@ -47,17 +47,13 @@ async def func_start(client: Client, message: Message):
     # for private chat [PM]
     text = (
         f"Hi 👋, myself {bot.first_name} 🥰!\n"
-        f"Nice to meet you, {user.first_name}\n\n"
+        f"Nice to meet you, {user.first_name} !!\n\n"
         
-        "I'm just a simple bot with some cool features 😊."
+        "I'm just a simple bot with some cool features 😊.\n\n"
+
+        "• **[Developer](https://t.me/bishalqx680/22)**\n"
+        "• **[Source Code](https://github.com/bishalqx980/Melina)**"
     )
 
-    keyboard_data = [
-        {"Help Menu 🐳": "help_menu", "Add me ➕": f"https://t.me/{bot.username}?startgroup=help"},
-        {"Developer 🧑‍💻": "https://t.me/bishalqx680/22", "Source Code 📝": "https://github.com/bishalqx980/Melina"},
-        {"Close ✖️": "help_close"}
-    ]
-
-    keyboard = BuildKeyboard.cbutton(keyboard_data)
-
-    await sent_message.edit_text(text, reply_markup=keyboard)
+    keyboard = BuildKeyboard.cbutton([{"Add me ➕": f"https://t.me/{bot.username}?startgroup=help"}])
+    await sent_message.edit_text(text, reply_markup=keyboard, disable_web_page_preview=True)

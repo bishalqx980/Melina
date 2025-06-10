@@ -4,7 +4,7 @@ from .logger import setup_logging
 from config import CONFIG
 
 # constants
-__version__ = "2.1.0.4" # major.minor.patch.commits
+__version__ = "2.1.1.5" # major.minor.patch.commits
 BOT_UPTIME = time()
 
 # logger

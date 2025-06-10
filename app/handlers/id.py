@@ -1,9 +1,9 @@
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.types import Message
 from app import app
 
 @app.on_message(filters.command("id", ["/", "-", "!", "."]))
-async def func_id(client: Client, message: Message):
+async def func_id(client, message: Message):
     user = message.from_user
     chat = message.chat
     reply = message.reply_to_message

@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatType, ChatMemberStatus
 from app import app
@@ -6,7 +6,7 @@ from .auxiliary.pm_error import pm_error
 from app.modules.database import MemoryDB
 
 @app.on_message(filters.command("tagall", ["/", "-", "!", "."]))
-async def func_tagallusers(client: Client, message: Message):
+async def func_tagallusers(client, message: Message):
     user = message.from_user
     chat = message.chat
 
@@ -50,7 +50,7 @@ async def func_tagallusers(client: Client, message: Message):
 
 
 @app.on_message(filters.command("stoptagall", ["/", "-", "!", "."]))
-async def func_tagallusers(client: Client, message: Message):
+async def func_tagallusers(client, message: Message):
     user = message.from_user
     chat = message.chat
 
