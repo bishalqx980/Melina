@@ -56,4 +56,4 @@ async def func_start(client, message: Message):
     )
 
     keyboard = BuildKeyboard.cbutton([{"Add me ➕": f"https://t.me/{bot.username}?startgroup=help"}])
-    await sent_message.edit_text(text, reply_markup=keyboard, disable_web_page_preview=True)
+    await sent_message.edit_text(text, reply_markup=keyboard)

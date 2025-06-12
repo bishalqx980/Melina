@@ -1,10 +1,11 @@
 from time import time
 from pyrogram import Client, __version__ as __pyroVersion__
+from pyrogram.types import LinkPreviewOptions
 from .logger import setup_logging
 from config import CONFIG
 
 # constants
-__version__ = "2.1.1.5" # major.minor.patch.commits
+__version__ = "2.2.0.10" # major.minor.patch.commits
 BOT_UPTIME = time()
 
 # logger
@@ -16,7 +17,8 @@ app = Client(
     api_id=CONFIG.API_ID,
     api_hash=CONFIG.API_HASH,
     bot_token=CONFIG.BOT_TOKEN,
-    workdir="sys"
+    workdir="sys",
+    link_preview_options=LinkPreviewOptions(is_disabled=True)
 )
 
 logger.info(f"""
