@@ -3,7 +3,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ChatType, ChatMemberStatus
 from app import bot
 from .auxiliary.pm_error import pm_error
-from app.modules.database import MemoryDB
+from app.utils.database import MemoryDB
 
 @bot.on_message(filters.command("tagall", ["/", "-", "!", "."]))
 async def func_tagallusers(client, message: Message):

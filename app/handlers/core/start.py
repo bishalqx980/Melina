@@ -7,7 +7,7 @@ from pyrogram.enums import ChatType
 
 from app import bot, BOT_UPTIME
 from app.helpers import BuildKeyboard
-from app.modules.database import MemoryDB, MongoDB
+from app.utils.database import MemoryDB, MongoDB
 
 @bot.on_message(filters.command("start", ["/", "-", "!", "."]))
 async def func_start(client, message: Message):

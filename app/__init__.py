@@ -2,7 +2,7 @@ import json
 from time import time
 from pyrogram import Client, __version__ as __pyroVersion__
 from pyrogram.types import LinkPreviewOptions
-from .logger import setup_logging
+from .utils.logger import setup_logging
 from config import CONFIG
 
 # constants
