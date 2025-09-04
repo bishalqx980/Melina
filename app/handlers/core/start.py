@@ -1,18 +1,22 @@
+from time import time
+from datetime import timedelta
+
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatType
-from app import app
+
+from app import bot, BOT_UPTIME
 from app.helpers import BuildKeyboard
 from app.modules.database import MemoryDB, MongoDB
 
-@app.on_message(filters.command("start", ["/", "-", "!", "."]))
+@bot.on_message(filters.command("start", ["/", "-", "!", "."]))
 async def func_start(client, message: Message):
     user = message.from_user
     chat = message.chat
 
     sent_message = await message.reply_text("⌛")
     # getting bot
-    bot = await app.get_me()
+    bot_info = await bot.get_me()
 
     # database entry
     if chat.type != ChatType.PRIVATE:
@@ -28,7 +32,7 @@ async def func_start(client, message: Message):
                 MongoDB.insert("chats_data", chat_data)
             MemoryDB.insert("chats_data", "chat_id", chat_data)
         
-        keyboard = [{"Start in PM 😉": f"https://t.me/{bot.username}?start=start"}]
+        keyboard = [{"Start in PM 😉": f"https://t.me/{bot_info.username}?start=start"}]
         
         await sent_message.edit_text("Hey, please start me in PM to chat with me 😊!", reply_markup=keyboard)
     else:
@@ -46,14 +50,15 @@ async def func_start(client, message: Message):
 
     # for private chat [PM]
     text = (
-        f"Hi 👋, myself {bot.first_name} 🥰!\n"
+        f"Hi 👋, myself {bot_info.first_name} 🥰!\n"
         f"Nice to meet you, {user.first_name} !!\n\n"
         
-        "I'm just a simple bot with some cool features 😊.\n\n"
+        "I'm just a simple bot with some cool features 😊.\n"
+        f"**Bot Uptime:** `{timedelta(seconds=int(time() - BOT_UPTIME))}`\n\n"
 
         "• **[Developer](https://t.me/bishalqx680/22)**\n"
         "• **[Source Code](https://github.com/bishalqx980/Melina)**"
     )
 
-    keyboard = BuildKeyboard.cbutton([{"Add me ➕": f"https://t.me/{bot.username}?startgroup=help"}])
+    keyboard = BuildKeyboard.cbutton([{"Add me ➕": f"https://t.me/{bot_info.username}?startgroup=help"}])
     await sent_message.edit_text(text, reply_markup=keyboard)

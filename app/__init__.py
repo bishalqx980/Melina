@@ -1,3 +1,4 @@
+import json
 from time import time
 from pyrogram import Client, __version__ as __pyroVersion__
 from pyrogram.types import LinkPreviewOptions
@@ -5,14 +6,14 @@ from .logger import setup_logging
 from config import CONFIG
 
 # constants
-__version__ = "2.2.0.10" # major.minor.patch.commits
+__version__ = json.load(open("version.json", "rb"))["__version__"] # major.minor.patch.commits
 BOT_UPTIME = time()
 
 # logger
 logger = setup_logging()
 
 # Main Client function
-app = Client(
+bot = Client(
     name="Melina_2.0",
     api_id=CONFIG.API_ID,
     api_hash=CONFIG.API_HASH,

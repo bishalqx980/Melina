@@ -2,7 +2,7 @@ import os
 import asyncio
 from pyrogram import idle
 from pyrogram.types import BotCommand, BotCommandScopeAllPrivateChats
-from app import app, logger
+from app import bot, logger
 from config import CONFIG
 
 def load_handlers():
@@ -19,10 +19,10 @@ def load_handlers():
                 __import__(module_path)
 
 
-async def app_init():
+async def bot_init():
     try:
-        await app.delete_bot_commands()
-        await app.set_bot_commands([
+        await bot.delete_bot_commands()
+        await bot.set_bot_commands([
             BotCommand("start", "start the bot"),
             BotCommand("help", "bot help menu")
         ], BotCommandScopeAllPrivateChats())
@@ -30,7 +30,7 @@ async def app_init():
         logger.error(e)
 
     try:
-        await app.send_message(CONFIG.OWNER_ID, "Bot Started!")
+        await bot.send_message(CONFIG.OWNER_ID, "Bot Started!")
     except Exception as e:
         logger.error(e)
     
@@ -39,12 +39,12 @@ async def app_init():
 
 
 async def main():
-    # Need to load before app.run()
+    # Need to load before bot.run()
     load_handlers()
 
     try:
-        await app.start()
-        await app_init()
+        await bot.start()
+        await bot_init()
     except Exception as e:
         logger.error(e)
 

@@ -1,9 +1,9 @@
 from pyrogram import filters
 from pyrogram.types import CallbackQuery
-from app import app
+from app import bot
 from app.helpers import BuildKeyboard
 
-@app.on_callback_query(filters.regex("help_[A-Za-z0-9]+"))
+@bot.on_callback_query(filters.regex("help_[A-Za-z0-9]+"))
 async def helpmenu_query_handler(client, query: CallbackQuery):
     query_data = query.data.removeprefix("help_")
 

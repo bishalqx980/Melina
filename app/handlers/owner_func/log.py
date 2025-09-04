@@ -2,10 +2,10 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatType
-from app import app
+from app import bot
 from config import CONFIG
 
-@app.on_message(filters.command("log", ["/", "-", "!", "."]))
+@bot.on_message(filters.command("log", ["/", "-", "!", "."]))
 async def func_log(client, message: Message):
     user = message.from_user
     chat = message.chat

@@ -1,10 +1,10 @@
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatType
-from app import app
+from app import bot
 from app.helpers import BuildKeyboard
 
-@app.on_message(filters.command("info", ["/", "-", "!", "."]))
+@bot.on_message(filters.command("info", ["/", "-", "!", "."]))
 async def func_info(client, message: Message):
     user = message.from_user
     reply = message.reply_to_message
@@ -21,11 +21,11 @@ async def func_info(client, message: Message):
         victim = args or replied_user
     
     if fetch_info:
-        user_info = await app.get_users(victim)
+        user_info = await bot.get_users(victim)
     else:
         user_info = victim
 
-    async for photo in app.get_chat_photos(user_info.id, 1):
+    async for photo in bot.get_chat_photos(user_info.id, 1):
         photo = photo.file_id or None
     
     text = (
