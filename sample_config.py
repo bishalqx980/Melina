@@ -7,3 +7,5 @@ class CONFIG:
 
     MONGODB_URI = ""    # str https://www.mongodb.com/docs/languages/python/pymongo-driver/current/get-started/#create-a-connection-string
     DATABASE_NAME = ""  # str Anything you want
+
+    RESITA_API_KEY = "" # str https://api.ferdev.my.id/
