@@ -22,3 +22,4 @@ class RESITA_API:
                     return json.loads(res)
         except Exception as e:
             logger.error(e)
+            return str(e)

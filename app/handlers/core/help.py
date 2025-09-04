@@ -9,6 +9,7 @@ class HelpMenuData:
         "<blockquote>Help Menu</blockquote>\n\n"
         "• /id - See user/chat ID\n"
         "• /info - See user info\n"
+        "• /ytdl - Download youtube audio\n"
         "• /tagall - Tag all chat members\n"
         "• /stoptagall - Stop tagging chat members\n"
         "• /log - [debug] (owner only)\n"

@@ -51,14 +51,17 @@ async def func_ytdl(_, message: Message):
             break
     
     if not link:
-        await message.reply_text("Example: `-ytdl link`")
+        await message.reply_text(f"Example: `-{message.command[0]} link`")
         return
     
     sent_message = await message.reply_text("Please wait!")
     
     res = await RESITA.sendGetReq("/downloader/ytmp3", {"link": link})
     if not res:
-        await sent_message.edit_text("Something went Wrong!")
+        return
+    
+    if res["status"] != 200:
+        await sent_message.edit_text(res["message"])
         return
     
     await sent_message.edit_text("Uploading...")
@@ -66,12 +69,17 @@ async def func_ytdl(_, message: Message):
     audio = res["data"]["dlink"]
     title = res["data"]["title"]
     thumb = res["data"]["thumbnail"]
-    size = f"{int(res['data']['size']) / 1024 / 1024}MB"
+    size = f"{(int(res['data']['size']) / 1024 / 1024):.2f}MB"
+
+    caption = (
+        f"**Name:** `{title}`\n"
+        f"**Size:** `{size}`"
+    )
 
     startTime = time()
     await sent_message.reply_audio(
-        res["data"]["dlink"],
-        caption=title,
+        audio,
+        caption=caption,
         title=title,
         thumb=thumb,
         progress=progress,

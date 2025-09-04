@@ -7,7 +7,7 @@ from pyrogram.enums import ChatType
 
 from app import bot, BOT_UPTIME
 from app.helpers import BuildKeyboard
-from app.utils.database import MemoryDB, MongoDB
+from app.utils.database import MemoryDB, MongoDB, database_add_user
 
 @bot.on_message(filters.command("start", ["/", "-", "!", "."]))
 async def func_start(client, message: Message):
@@ -36,17 +36,7 @@ async def func_start(client, message: Message):
         
         await sent_message.edit_text("Hey, please start me in PM to chat with me 😊!", reply_markup=keyboard)
     else:
-        user_data = MemoryDB.users_data.get(user.id)
-        if not user_data:
-            user_data = MongoDB.find_one("users_data", "user_id", user.id)
-            if not user_data:
-                user_data = {
-                    "user_id": user.id,
-                    "name": user.first_name
-                }
-
-                MongoDB.insert("users_data", user_data)
-            MemoryDB.insert("users_data", "user_id", user_data)
+        database_add_user(user)
 
     # for private chat [PM]
     text = (
