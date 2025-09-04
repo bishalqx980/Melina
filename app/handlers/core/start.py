@@ -32,7 +32,7 @@ async def func_start(client, message: Message):
                 MongoDB.insert("chats_data", chat_data)
             MemoryDB.insert("chats_data", "chat_id", chat_data)
         
-        keyboard = [{"Start in PM 😉": f"https://t.me/{bot_info.username}?start=start"}]
+        keyboard = BuildKeyboard.cbutton([{"Start in PM 😉": f"https://t.me/{bot_info.username}?start=start"}])
         
         await sent_message.edit_text("Hey, please start me in PM to chat with me 😊!", reply_markup=keyboard)
     else:

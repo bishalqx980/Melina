@@ -50,7 +50,7 @@ async def func_tagallusers(client, message: Message):
 
 
 @bot.on_message(filters.command("stoptagall", ["/", "-", "!", "."]))
-async def func_tagallusers(client, message: Message):
+async def func_stoptagall(client, message: Message):
     user = message.from_user
     chat = message.chat
 
@@ -63,7 +63,7 @@ async def func_tagallusers(client, message: Message):
         await message.reply_text("You don't have enough permission to stop tagging!")
         return
     
-    chat_data = MemoryDB.data_center.get(chat.id)
+    chat_data = MemoryDB.data_center.get(chat.id) or {}
     tagging_running = chat_data.get("tagging_running")
 
     if tagging_running:

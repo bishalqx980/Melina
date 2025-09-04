@@ -1,3 +1,4 @@
 kurigram==2.2.9
 pymongo==4.14.1
+aiohttp
 tgcrypto
