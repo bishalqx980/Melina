@@ -1,0 +1,137 @@
+{
+    "youtube": {
+        "YouTube (mp3)": {
+            "data": "download_ytmp3",
+            "path": "/downloader/ytmp3",
+            "param": ""
+        },
+        "YouTube (mp4)": {
+            "data": "download_ytmp4",
+            "path": "/downloader/ytmp4",
+            "param": ""
+        },
+        "YouTube (Shorts)": {
+            "data": "download_ytshorts",
+            "path": "/downloader/ytshorts",
+            "param": ""
+        }
+    },
+    "social": {
+        "Instagram (story)": {
+            "data": "download_igstory",
+            "path": "/downloader/igstory",
+            "param": ""
+        },
+        "Instagram": {
+            "data": "download_instagram",
+            "path": "/downloader/instagram",
+            "param": ""
+        },
+        "Threads": {
+            "data": "download_threads",
+            "path": "/downloader/threads",
+            "param": ""
+        },
+        "X (twitter)": {
+            "data": "download_twitter",
+            "path": "/downloader/twitter",
+            "param": ""
+        },
+        "Facebook": {
+            "data": "download_facebook",
+            "path": "/downloader/facebook",
+            "param": ""
+        },
+        "Tiktok": {
+            "data": "download_tiktok",
+            "path": "/downloader/tiktok",
+            "param": ""
+        },
+        "Capcut": {
+            "data": "download_capcut",
+            "path": "/downloader/capcut",
+            "param": ""
+        },
+        "Likee": {
+            "data": "download_likee",
+            "path": "/downloader/likee",
+            "param": ""
+        }
+    },
+    "music": {
+        "Apple Music": {
+            "data": "download_applemusic",
+            "path": "/downloader/applemusic",
+            "param": ""
+        },
+        "SoundCloud": {
+            "data": "download_soundcloud",
+            "path": "/downloader/soundcloud",
+            "param": ""
+        },
+        "Spotify": {
+            "data": "download_spotify",
+            "path": "/downloader/spotify",
+            "param": ""
+        }
+    },
+    "storage": {
+        "Google Drive": {
+            "data": "download_gdrive",
+            "path": "/downloader/gdrive",
+            "param": ""
+        },
+        "Mediafire": {
+            "data": "download_mediafire",
+            "path": "/downloader/mediafire",
+            "param": ""
+        },
+        "GitHub": {
+            "data": "download_github",
+            "path": "/downloader/github",
+            "param": "repo"
+        }
+    },
+    "other": {
+        "Pinterest": {
+            "data": "download_pinterest",
+            "path": "/downloader/pinterest",
+            "param": ""
+        },
+        "SnackVideo": {
+            "data": "download_snackvideo",
+            "path": "/downloader/snackvideo",
+            "param": ""
+        },
+        "Terabox": {
+            "data": "download_terabox",
+            "path": "/downloader/terabox",
+            "param": ""
+        },
+        "Xvideos": {
+            "data": "download_xvideos",
+            "path": "/downloader/xvideos",
+            "param": ""
+        },
+        "Xnxx": {
+            "data": "download_xnxx",
+            "path": "/downloader/xnxx",
+            "param": ""
+        },
+        "Scribd": {
+            "data": "download_scribd",
+            "path": "/downloader/scribd",
+            "param": ""
+        },
+        "Douyin": {
+            "data": "download_douyin",
+            "path": "/downloader/douyin",
+            "param": ""
+        },
+        "FDroid": {
+            "data": "download_fdroid",
+            "path": "/downloader/fdroid",
+            "param": ""
+        }
+    }
+}

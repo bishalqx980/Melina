@@ -1,0 +1,22 @@
+{
+    "youtube": {
+        "YouTube (mp3)": {
+            "data": "download_ytmp3",
+            "path": "/downloader/ytmp3"
+        }
+    },
+    "music": {
+        "Apple Music": {
+            "data": "download_applemusic",
+            "path": "/downloader/applemusic"
+        },
+        "SoundCloud": {
+            "data": "download_soundcloud",
+            "path": "/downloader/soundcloud"
+        },
+        "Spotify": {
+            "data": "download_spotify",
+            "path": "/downloader/spotify"
+        }
+    }
+}
