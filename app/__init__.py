@@ -1,7 +1,10 @@
 import json
 from time import time
+
 from pyrogram import Client, __version__ as __pyroVersion__
 from pyrogram.types import LinkPreviewOptions
+from pyrogram.enums import ClientPlatform
+
 from .utils.logger import setup_logging
 from config import CONFIG
 
@@ -17,8 +20,12 @@ bot = Client(
     name="Melina_2.0",
     api_id=CONFIG.API_ID,
     api_hash=CONFIG.API_HASH,
+    app_version=f"{__pyroVersion__} x64",
+    device_model="Desktop",
+    system_version="Windows 11 x64",
     bot_token=CONFIG.BOT_TOKEN,
     workdir="sys",
+    client_platform=ClientPlatform.DESKTOP,
     link_preview_options=LinkPreviewOptions(is_disabled=True)
 )
 
